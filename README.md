@@ -1,2 +1,2 @@
-## Metagenomics Tutorial
+## Analyzing Shotgun Metagenomic Data
 
