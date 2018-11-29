@@ -1,4 +1,4 @@
-# Shotgun Metagenomic Sequencing - Assembly-Based Analysis
+# <center>Shotgun Metagenomic Sequencing: Assembly-Based Analysis</center>
 
 ### Introduction
 The purpose of this tutorial is to provide one of the possible metagenomic workflows for analyzing shotgun metagenomic next-generation sequencing reads. Keep in mind that there are many different programs that will accomplish each step.
