@@ -13,6 +13,7 @@ Downloading and installing bioinformatics programs is easily achieved with Bioco
 Bioconda requires the conda package manager to be installed.  The best way is to install the Miniconda package (Python 3 version) [here](https://conda.io/miniconda.html).
 
 Once bioconda is installed on your system, the following packages should be installed:
+* fastqc
 * fastp
 * bowtie2
 * metaphlan2
