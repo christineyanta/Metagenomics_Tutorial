@@ -31,4 +31,30 @@ Once all of the sequencing reads for each sample is downloaded and converted int
 
 ## Assessing the Quality of Reads
 
-FastQC is 
+[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) allows for a quick assessment of quality of the reads obtained.
+NEED TO FINISH
+
+## Filtering Reads
+
+Since the sequence data was obtained from another researcher's study (and not original data), it has already undergone demultiplexing.  So the next step would be to filter the reads.
+
+[Fastp](https://github.com/OpenGene/fastp) is a tool that allows for a quick all-in-one preprocessing of FASTQ files. This tool can perform a variety of functions:
+* Adapter Trimming
+* Filter by Quality and Length
+* Base Correction for Paired-End Data
+* Overrepresented Sequence Analysis
+
+For our data, we want to perform the following filtering command:
+
+```fastp -i Sample_R1.fastq -I Sample_R2.fastq -o Sample.R1.fq.gz -O Sample.R2.fq.gz -c -l 50 -5 -3 -M 15```
+
+Each argument is as follows:
+* `-i Sample_R1.fq.gz -I Sample_R2.fq.gz -o Sample.R1.fq.gz -O Sample.R2.fq.gz` - paired-end data input and output
+* `-c` - base correction for paired-end data
+* `-l 50` - minimum contig length of 50 base pairs
+* `-5 -3` - enable per read cutting by quality in 5' and 3' end of sequence
+* `-M 15` - mean quality cutoff of 15
+
+When completed, fastp will output a .html file with the summary statistics. This report states how many reads were kept vs. discarded, duplication rate, insert size estimation, and kmer counting. Inspect one of these files to gain further insight on the statistics it reports.
+
+
