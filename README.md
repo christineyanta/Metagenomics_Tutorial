@@ -36,7 +36,7 @@ This tutorial begins once the sequencing reads for each sample have been obtaine
 3. [Taxonomical Classification](https://christineyanta.github.io/Metagenomics_Tutorial/Part3)
 4. [Functional Classification](https://christineyanta.github.io/Metagenomics_Tutorial/Part4)
 
-###References
+### References
 
 These pipelines have largely been influenced by the following tutorials:
 
