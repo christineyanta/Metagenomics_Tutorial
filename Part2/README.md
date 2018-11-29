@@ -10,21 +10,21 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 
 	The output should appear as:
 
-	```Subject8.R1.fq
+	```(bash)
+	Subject8.R1.fq
 	Subject8.R2.fq
 	Subject11.R1.fq
 	Subject11.R2.fq```
-
 * Hadza Population
 
-```ls /MetagenomicsTutorial/HadzaData/*fastq```
+	```ls /MetagenomicsTutorial/HadzaData/*fastq```
 
-The output should appear as:
-
-```Subject19.R1.fq
-Subject19.R2.fq
-Subject26.R1.fq
-Subject26.R2.fq```
+	The output should appear as:
+	```(bash)
+	Subject19.R1.fq
+	Subject19.R2.fq
+	Subject26.R1.fq
+	Subject26.R2.fq```
 
 The next step is to perform an assembly on the read data to form contigs. For this tutorial, the two samples from each population will be combined. Generally, each sample is assembled separately; however to make things simpler due to limited resources, the two samples from each population will be combined in the assembly process. Therefore, an two assemblies will be created: Italian Assembly and Hadza Assembly.
 
