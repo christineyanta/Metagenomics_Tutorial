@@ -34,7 +34,7 @@ Once the analysis is done, you will receive an e-mail with the results.  From th
 
 In order to convert the KEGG IDs to their function.  Therefore, you will need to download the following file that links the KEGG assignment IDs to their functions:
 
-```wget https://christineyanta.github.io/Metagenomics_Tutorial/Part4/KEGG_table.txt```
+```$ wget https://christineyanta.github.io/Metagenomics_Tutorial/Part4/KEGG_table.txt```
 
 Next, we will need to perform some text file manipulations to get the data that we want. For this example, we will use the GhostKOALA user_ko.txt file obtained from the Italian data set.
 
