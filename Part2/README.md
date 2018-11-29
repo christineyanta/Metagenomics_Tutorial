@@ -6,7 +6,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 
 * Italian Population
 
-	```ls /MetagenomicsTutorial/ItalianData/*fastq```
+	```$ ls /MetagenomicsTutorial/ItalianData/*fastq```
 
 	The output should appear as:
 
@@ -17,7 +17,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	Subject11.R2.fq```
 * Hadza Population
 
-	```ls /MetagenomicsTutorial/HadzaData/*fastq```
+	```$ls /MetagenomicsTutorial/HadzaData/*fastq```
 
 	The output should appear as:
 	```(bash)
@@ -25,7 +25,6 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	Subject19.R2.fq
 	Subject26.R1.fq
 	Subject26.R2.fq```
-
 The next step is to perform an assembly on the read data to form contigs. For this tutorial, the two samples from each population will be combined. Generally, each sample is assembled separately; however to make things simpler due to limited resources, the two samples from each population will be combined in the assembly process. Therefore, an two assemblies will be created: Italian Assembly and Hadza Assembly.
 
 The program which we will use to assemble the contigs within the read files is [Megahit](https://github.com/voutcn/megahit).  This de novo assembler is able to assemble large and complex metagenomics in an efficient manner. An alternative program to Megahit is [metaSpades](https://www.ncbi.nlm.nih.gov/pubmed/28298430).
@@ -39,14 +38,15 @@ R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(
 
 2. Ensure the environmental variables are set properly. Your output should appear as follows:
 
-```$ echo $R1s
+```(bash)
+$ echo $R1s
 Subject8.R1.fq,Subject11.R1.fq
 $ echo $R2s
 Subject8.R2.fq,Subject11.R2.fq```
 
 3. Perform the assembly with Megahit:
 
-```megahit -1 $R1s -2 $R2s --min-contig-len 1000 -m 0.85 -o Assembly/ -t 8```
+```$ megahit -1 $R1s -2 $R2s --min-contig-len 1000 -m 0.85 -o Assembly/ -t 8```
 
 The arguments are as follows:
 * `-1` : Read1 Input File(s)
