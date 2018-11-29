@@ -18,7 +18,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	```
 * Hadza Population
 
-	```$ls /MetagenomicsTutorial/HadzaData/*fastq```
+	```$ ls /MetagenomicsTutorial/HadzaData/*fastq```
 
 	The output should appear as:
 	```(bash)
@@ -46,7 +46,8 @@ R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(
 $ echo $R1s
 Subject8.R1.fq,Subject11.R1.fq
 $ echo $R2s
-Subject8.R2.fq,Subject11.R2.fq```
+Subject8.R2.fq,Subject11.R2.fq
+```
 
 3. Perform the assembly with Megahit:
 
