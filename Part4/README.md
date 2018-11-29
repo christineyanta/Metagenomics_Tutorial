@@ -38,5 +38,50 @@ In order to convert the KEGG IDs to their function.  Therefore, you will need to
 
 Next, we will need to perform some text file manipulations to get the data that we want. For this example, we will use the GhostKOALA user_ko.txt file obtained from the Italian data set.
 
+At this point, we should have an annotation file that appears similar to this:
 
- 
+```(bash)
+$ head user_ko.txt
+genecall_0	K01785
+genecall_1	K07240
+genecall_2	K02049
+genecall_3	K02050
+genecall_4
+genecall_5
+genecall_6	K02493
+```
+
+For relative gene abundance analysis, all we need is the KEGG IDs.  Therefore, we can extract them as follows:
+
+```$ awk '{print $2}' italian_ko.txt > italian_ko_keggids.txt```
+
+Now we want to map the KEGG IDs to their function.  We can do this by:
+
+```$ awk 'NR==FNR{a[$1]++;next};a[$1]' italian_ko_keggids.txt KEGG_table.txt > Italian_functions.txt```
+
+This will now give us the functions and pathways associated for each gene that was found. From here, we can use this data to determine relative gene abundances.
+
+For instance, say we want to get a count on number of genes to overall pathways. We can first get the second column from the functions file and then count how many there are of each:
+
+```(bash)
+$ awk '{print $2}' Italian_functions.txt > Italian_pathways.txt
+$ cat Italian_pathways.txt | sort | uniq -c > Italian_pathways_count.txt
+```
+
+If we look at this file, we now see the number of genes that were present for each major pathway:
+
+```(bash)
+$ cat Italian_pathways_count.txt
+ 182 Cellular Processes
+ 322 Environmental Information Processing
+ 230 Genetic Information Processing
+ 176 Human Diseases
+1321 Metabolism
+ 373 Unknown
+ 128 Organismal
+```
+
+This data can be obtained from both Italian and Hadza populations in similar fashions. Once the data is obtained, relative abundance profiles can be created and analyzed.
+
+For further results, please refer to Final Project Report.
+
