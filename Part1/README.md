@@ -49,12 +49,12 @@ For our data, we want to perform the following filtering command:
 ```fastp -i Sample_R1.fastq -I Sample_R2.fastq -o Sample.R1.fq.gz -O Sample.R2.fq.gz -c -l 50 -5 -3 -M 15```
 
 Each argument is as follows:
-* `-i Sample_R1.fq.gz -I Sample_R2.fq.gz -o Sample.R1.fq.gz -O Sample.R2.fq.gz` - paired-end data input and output
-* `-c` - base correction for paired-end data
-* `-l 50` - minimum contig length of 50 base pairs
-* `-5 -3` - enable per read cutting by quality in 5' and 3' end of sequence
-* `-M 15` - mean quality cutoff of 15
+* `-i Sample_R1.fq.gz -I Sample_R2.fq.gz -o Sample.R1.fq.gz -O Sample.R2.fq.gz` : paired-end data input and output
+* `-c` : base correction for paired-end data
+* `-l 50` : minimum contig length of 50 base pairs
+* `-5 -3` : enable per read cutting by quality in 5' and 3' end of sequence
+* `-M 15` : mean quality cutoff of 15
 
 When completed, fastp will output a .html file with the summary statistics. This report states how many reads were kept vs. discarded, duplication rate, insert size estimation, and kmer counting. Inspect one of these files to gain further insight on the statistics it reports.
 
-
+Once all reads for every sample has been processed, the next step is to assemble the contigs and map.  Please refer to [Read Assembly and Mapping](https://christineyanta.github.io/Metagenomics_Tutorial/Part2) for further instructions.
