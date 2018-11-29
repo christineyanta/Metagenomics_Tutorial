@@ -4,7 +4,7 @@
 
 At this point, you should have all the quality-filtered .fastq files for all four samples under analysis (there should be 8 in total, two for each sample). For simplicity, the data for each population should be seperated into different directories:
 
-* Italian Population
+* **Italian Population:
 
 	```$ ls /MetagenomicsTutorial/ItalianData/*fastq```
 
@@ -16,7 +16,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	Subject11.R1.fq
 	Subject11.R2.fq
 	```
-* Hadza Population
+* **Hadza Population:
 
 	```$ ls /MetagenomicsTutorial/HadzaData/*fastq```
 
@@ -65,7 +65,6 @@ Once the assembly is finished, you can take a look at the statistics of the asse
 
 ```(bash)
 $ tail Assembly/log
-
 b'    [assembler.cpp             : 225]     Number of complex bubbles removed: 0, Time elapsed(sec): 0.235667'
 b'    [assembler.cpp             : 243]     Number unitigs disconnected: 0, time: 0.031702'
 b'    [assembler.cpp             : 265]     Unitigs removed in excessive pruning: 0, time: 0.003666'
@@ -81,6 +80,8 @@ b'    [utils.h                   : 126]     Real: 232.0211\tuser: 724.6043\tsys:
 From this log file, we can examine the number of contigs, total length, average contig length and N50. Observe the data for yourself.
 
 Repeat steps 1-3 for the Hadza data.
+
+
 
 
 
