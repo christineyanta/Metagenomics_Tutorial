@@ -1,6 +1,6 @@
-## Analyzing Shotgun Metagenomic Data
+# Analyzing Shotgun Metagenomic Data
 
-# Introduction
+## Introduction
 The purpose of this tutorial is to provide one of the possible metagenomic workflows for analyzing shotgun metagenomic next-generation sequencing reads. Keep in mind that there are many different programs that will accomplish each step.
 
 Metagenomics is the study of all genetic material within an environmental sample. Assembly-based metagenomics attempts to assemble the reads from the sample(s) to create contigs and 'bin' each contig into genomes.  This will later allow taxonomical and functional profiling.
@@ -13,17 +13,17 @@ To summarize, these two populations differ in their diets. The Hadza diet consis
 
 Overall, this tutorial will examine a subset of this data to ultimately determine the taxnomical differences between both populations in addition to the functional difference.
 
-# Important Note
+## Important Note
 
 This tutorial was created for the Final Independent Study of the Genomics (BIOL 469) course offered at the University of Waterloo (Fall 2018). 
 
-# Requirements and Software Installation
+## Requirements and Software Installation
 
 The main requirements to follow along with tutorial is to have access to a Linux-based OS. 
 
 There are a variety of programs that are required to be downloaded in order to analyze the data set.  Please refer to the [Setup Instructions](https://christineyanta.github.io/Metagenomics_Tutorial/Setup/) before continuing with this tutorial.
   
-# Metagenomics Analysis
+## Metagenomics Analysis
 
 A metagenomic study starts much earlier than sequence analysis. The following steps must be considered and performed: experimental design, sampling strategies, library preparation and sequencing. These four steps are critical to obtain good-quality data to analyze.
 
