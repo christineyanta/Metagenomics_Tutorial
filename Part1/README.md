@@ -22,7 +22,8 @@ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR
 ```
 
 Each SRA data file downloaded must be coverted into the FASTQ format.  This can be done with the following command:
-```/SRAToolKit/bin/fastq-dump --split-files <datafile.sra>``` 
+
+```/SRAToolKit/bin/fastq-dump --split-files datafile.sra``` 
 
 Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2).
 
