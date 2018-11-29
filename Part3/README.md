@@ -54,8 +54,57 @@ Once the taxonomy information is gathered for all samples within one population,
 
 Taking a look at the output file, you can notice that all results for each sample within the population has been merged.
 
+To get species only abundance table:
+
+```$ grep -E "(s__)|(^ID)" merged_tax_table.txt | grep -v "t__" | sed 's/^.*s__//g' > merged_tax_species.txt```
+
 ### Visualizing MetaPhlAn2 Results
 
-The merged taxonomic abundance results can then be visualized the the [hclust2](https://bitbucket.org/nsegata/hclust2) program. This tool is useful for displaying the data as a heat map.
+The merged taxonomic abundance results can then be visualized with the [hclust2](https://bitbucket.org/nsegata/hclust2) program. This tool is useful for displaying the data as a heat map.
 
-  
+To generate the heatmap, simply type:
+
+```$ hclust2.py -i merged_tax_species.txt -o abundance_heatmap_species.png --ftop 25 --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 6 --slabel_size 6 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300```
+
+The arguments are as follows:
+* `-i merged_tax_species.txt` : input species abundance table file
+* `-o abundance_heatmap_species.png` : output file for heatmap
+* `--ftop 25` : select the top 25 species
+* `--f_dist_f braycurtis` : use Bray-Curtis as the distance measure between microbes
+* `--s_dist_f braycurtis` : use Bray-Curtis as the distance measure between samples
+* `--cell_aspect_ratio 0.5`: set the cell aspect ratio of 0.5
+* `-l` : use a log scale for assigning colours
+* `--flabel_size 6` : set the feature label size to 6
+* `--slabel_size 6` : set the sample label size to 6
+* `--max_flabel_len 100` : max label length of 100
+* `--max_slabel_len 100` : max label length of 100
+* `--minv 0.1` : minimum display value of 0.1
+* `--dpi 300` : set image resolution to 300
+
+The heatmap will then saved under the directory you are working in.  Take a look at it to observe the taxonomical differences between samples.
+
+### Visualizing MetaPhlAn2 Results with GraPhlAn
+
+GraPhlAn allows the species abundance results in each sample to be visualized as a phylogeny.  The [GraPhlAn](http://huttenhower.sph.harvard.edu/graphlan) tool provides as easy to create trees and annotate them with microbial species names and relative abundances.
+
+To create a GraPhlAn visualization, we first need to create an appropriate input file. For the merged_tax_table.txt generated above, perform the following command:
+
+```$ export2graphlan.py --skip_rows 1,2 -i merged_tax_table.txt --tree merged_abundance.tree.txt --annotation merged_abundance.annot.txt --most_abundant 100  --annotations 5,6 --external_annotations 7```
+
+The arguments are as follows:
+* `--skip_rows 1,2` : skip rows 1 and 2
+* `-i merged_tax_table.txt` : input abundance table
+* `--tree merged_abundance.tree.txt` : output file used to build tree
+* `--annotation merged_abundance.annot.txt` : output file used for annotation
+* `--most_abundant 100` : select top 100 species that are most abundant
+* `--annotations 5,6` : select taxonomic levels 5 and 6 to annotate
+* `--external_annotations 7` : use taxonomic level 7 for external legen
+
+This command will output two files: *.tree.txt and *.annot.txt. These two files are then used to create the cladogram using the following command:
+
+```(bash)
+$ graphlan_annotate.py --annot merged_abundance.annot.txt merged_abundance.tree.txt merged_abundance.xml
+$ graphlan.py --dpi 300 merged_abundance.xml merged_abundance.png --external_legends
+```
+
+The cladogram `.png` file is now generated and can be found in the directory you are working with.
