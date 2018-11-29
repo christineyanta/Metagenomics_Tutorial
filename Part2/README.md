@@ -4,18 +4,22 @@
 
 At this point, you should have all the quality-filtered .fastq files for all four samples under analysis (there should be 8 in total, two for each sample). For simplicity, the data for each population should be seperated into different directories:
 
+* Italian Population
+
 ```ls /MetagenomicsTutorial/ItalianData/*fastq```
 
-* The output should appear as:
+The output should appear as:
 
 ```Subject8.R1.fq
 Subject8.R2.fq
 Subject11.R1.fq
 Subject11.R2.fq```
 
+* Hadza Population
+
 ```ls /MetagenomicsTutorial/HadzaData/*fastq```
 
-* The output should appear as:
+The output should appear as:
 
 ```Subject19.R1.fq
 Subject19.R2.fq
