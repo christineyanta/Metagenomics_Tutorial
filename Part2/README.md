@@ -14,7 +14,9 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	Subject8.R1.fq
 	Subject8.R2.fq
 	Subject11.R1.fq
-	Subject11.R2.fq```
+	Subject11.R2.fq
+	```
+
 * Hadza Population
 
 	```$ls /MetagenomicsTutorial/HadzaData/*fastq```
