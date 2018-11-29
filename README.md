@@ -35,3 +35,10 @@ This tutorial begins once the sequencing reads for each sample have been obtaine
 2. [Read Assembly and Mapping](https://christineyanta.github.io/Metagenomics_Tutorial/Part2)
 3. [Taxonomical Classification](https://christineyanta.github.io/Metagenomics_Tutorial/Part3)
 4. [Functional Classification](https://christineyanta.github.io/Metagenomics_Tutorial/Part4)
+
+###References
+
+These pipelines have largely been influenced by the following tutorials:
+
+BioBakery - [MetaPhlAn2 Tutorial](https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2)
+MerenLab - [Anvio Tutorial](http://merenlab.org/tutorials/infant-gut/)

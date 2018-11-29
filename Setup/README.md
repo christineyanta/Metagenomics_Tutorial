@@ -17,11 +17,33 @@ Once bioconda is installed on your system, the following packages should be inst
 * fastp
 * bowtie2
 * metaphlan2
+* hclust2
+* graphlan
+* export2graphlan
 * anvio
 * megahit
 
 To install packages on bioconda, simply type:
-`conda install <package-name>`
+`conda install package-name`
+
+## Galaxy
+
+[Galaxy](https://usegalaxy.org) is a web-based platform to perform data analysis.  Some of the programs listed above may be available to perform analysis on the samples.
+
+## Other
+
+Another option is downloading all of these programs locally without BioConda.
+* [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+* [fastp](https://github.com/OpenGene/fastp)
+* [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+* [metaphlan2](https://bitbucket.org/biobakery/metaphlan2)
+* [hclust2](https://bitbucket.org/nsegata/hclust2)
+* [graphlan](https://bitbucket.org/nsegata/graphlan/wiki/Home)
+* [export2graphlan](https://bitbucket.org/CibioCM/export2graphlan)
+* [anvio](http://merenlab.org/2016/06/26/installation-v2/)
+* [megahit](https://github.com/voutcn/megahit)
+
+There may be other dependencies that need to be downloaded to run these programs.  Refer to the links provided for further installation instructions.
 
 ### References
 
