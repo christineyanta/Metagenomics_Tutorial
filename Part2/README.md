@@ -63,7 +63,8 @@ The arguments are as follows:
 
 Once the assembly is finished, you can take a look at the statistics of the assembly performed:
 
-```$ tail Assembly/log
+```(bash)
+$ tail Assembly/log
 
 b'    [assembler.cpp             : 225]     Number of complex bubbles removed: 0, Time elapsed(sec): 0.235667'
 b'    [assembler.cpp             : 243]     Number unitigs disconnected: 0, time: 0.031702'
@@ -74,7 +75,8 @@ b'    [assembler.cpp             : 133]     Maximum length: 195196'
 b'    [utils.h                   : 126]     Real: 232.0211\tuser: 724.6043\tsys: 117.9306\tmaxrss: 518266880'
 --- [2018] Merging to output final contigs ---
 --- [STAT] 27965 contigs, total 76168090 bp, min 1000 bp, max 195196 bp, avg 2724 bp, N50 3309 bp
---- [2018] ALL DONE. Time elapsed: 7377.960897 seconds ---```
+--- [2018] ALL DONE. Time elapsed: 7377.960897 seconds ---
+```
 
 From this log file, we can examine the number of contigs, total length, average contig length and N50. Observe the data for yourself.
 
