@@ -6,6 +6,7 @@ There are many tools that map contigs to classify each one to a taxonomy such as
 
 ## Concoct
 
+## MetaPhlAn2
 
 Alternatively, a read-based approach can also be used to classify the reads taxonomically.  The tool which we will go through is MetaPhlAn2.
 
@@ -53,7 +54,7 @@ Once the taxonomy information is gathered for all samples within one population,
 
 Taking a look at the output file, you can notice that all results for each sample within the population has been merged.
 
-###Visualizing MetaPhlAn2 Results
+### Visualizing MetaPhlAn2 Results
 
 The merged taxonomic abundance results can then be visualized the the [hclust2](https://bitbucket.org/nsegata/hclust2) program. This tool is useful for displaying the data as a heat map.
 
