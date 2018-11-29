@@ -4,17 +4,19 @@
 
 At this point, you should have all the quality-filtered .fastq files for all four samples under analysis (there should be 8 in total, two for each sample). For simplicity, the data for each population should be seperated into different directories:
 
-```ls /MetagenomicsTutorial/ItalianData/*fastq```
+* ```ls /MetagenomicsTutorial/ItalianData/*fastq```
 
 The output should appear as:
+
 ```Subject8.R1.fq
 Subject8.R2.fq
 Subject11.R1.fq
 Subject11.R2.fq```
 
-```ls /MetagenomicsTutorial/HadzaData/*fastq```
+* ```ls /MetagenomicsTutorial/HadzaData/*fastq```
 
 The output should appear as:
+
 ```Subject19.R1.fq
 Subject19.R2.fq
 Subject26.R1.fq
@@ -53,6 +55,7 @@ The arguments are as follows:
 Once the assembly is finished, you can take a look at the statistics of the assembly performed:
 
 ```$ tail Assembly/log
+
 b'    [assembler.cpp             : 225]     Number of complex bubbles removed: 0, Time elapsed(sec): 0.235667'
 b'    [assembler.cpp             : 243]     Number unitigs disconnected: 0, time: 0.031702'
 b'    [assembler.cpp             : 265]     Unitigs removed in excessive pruning: 0, time: 0.003666'
