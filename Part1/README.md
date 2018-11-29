@@ -13,10 +13,13 @@ For this study, two random samples from each population will be downloaded. Thei
 	* Subject 26 - SRR1930143
 
 To download each sample data set:
-```wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1931178/SRR1931178.sra```
-```wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930248/SRR1930248.sra```
-```wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930132/SRR1930132.sra```
-```wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930143/SRR1930143.sra```
+
+```bash
+wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1931178/SRR1931178.sra
+wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930248/SRR1930248.sra
+wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930132/SRR1930132.sra
+wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930143/SRR1930143.sra
+```
 
 Each SRA data file downloaded must be coverted into the FASTQ format.  This can be done with the following command:
 ```/SRAToolKit/bin/fastq-dump --split-files <datafile.sra>``` 
