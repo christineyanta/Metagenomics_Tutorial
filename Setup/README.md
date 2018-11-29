@@ -20,7 +20,7 @@ Once bioconda is installed on your system, the following packages should be inst
 * megahit
 
 To install packages on bioconda, simply type:
-'conda install <package-name>'
+`conda install <package-name>`
 
 ### References
 
