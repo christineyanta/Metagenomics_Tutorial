@@ -99,6 +99,7 @@ Then for each sample, you will need to map the reads to the indexed reference ge
 
 ```(bash)
 $ bowtie2 --threads 8 -x Mapping/contigs -1 Sample.R1.fq -2 Sample.R2.fq -S 04_MAPPING/Sample.sam
+```
 
 The first line simply maps the reads to the contigs generated, creating a SAM file.
 * Arguments Defined:
