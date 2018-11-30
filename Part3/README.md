@@ -13,23 +13,26 @@ In order to run this program, we must have a contigs.db and a mapping profile fo
 From this point, you should have all BAM files for each sample in each population and contigs.db created.
 
 The next step is to create a profile for anvi'o.  This can be done with the following command:
+
 ```$ anvi-profile -i sample.bam -c contigs.db```
 
 This will create a PROFILE.db file.  This step should be done for all .bam files created in the previous section.
 
 Afterwards, you will want to merge all sample for each population:
 
-```anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db```
+```$ anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db```
 
 In the end, you should have two SAMPLES-MERGED directories, one for each population (Hadza and Italian).
 
 Finally, to run CONCOCT for each population:
-```anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT```
+
+```$ anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT```
 
 From here, two SAMPLES-SUMMARY directories will be made with the results from CONCOCT. This data can be further analyzed. For instance, for each bin, you can examine the contigs, gene calls, abundances, and much more! 
 
 
-Note: With the merged_profile made of the samples, you can use anvi'o interactive interface to browse the data and perform refined, supervised binning.  For more information, click [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
+**Note: With the merged_profile made of the samples, you can use anvi'o interactive interface to browse the data and perform refined, supervised binning.  For more information, click [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
+
 ```anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT```
 
 ## MetaPhlAn2

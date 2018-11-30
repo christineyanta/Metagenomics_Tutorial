@@ -15,15 +15,15 @@ For this study, two random samples from each population will be downloaded. Thei
 To download each sample data set:
 
 ```bash
-wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1931178/SRR1931178.sra
-wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930248/SRR1930248.sra
-wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930132/SRR1930132.sra
-wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930143/SRR1930143.sra
+$ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1931178/SRR1931178.sra
+$ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930248/SRR1930248.sra
+$ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930132/SRR1930132.sra
+$ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930143/SRR1930143.sra
 ```
 
 Each SRA data file downloaded must be coverted into the FASTQ format.  This can be done with the following command:
 
-```/SRAToolKit/bin/fastq-dump --split-files datafile.sra``` 
+```$ /SRAToolKit/bin/fastq-dump --split-files datafile.sra``` 
 
 Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2).
 
@@ -46,7 +46,7 @@ Since the sequence data was obtained from another researcher's study (and not or
 
 For our data, we want to perform the following filtering command:
 
-```fastp -i Sample_R1.fastq -I Sample_R2.fastq -o Sample.R1.fq.gz -O Sample.R2.fq.gz -c -l 50 -5 -3 -M 15```
+```$ fastp -i Sample_R1.fastq -I Sample_R2.fastq -o Sample.R1.fq.gz -O Sample.R2.fq.gz -c -l 50 -5 -3 -M 15```
 
 Each argument is as follows:
 * `-i Sample_R1.fq.gz -I Sample_R2.fq.gz` : paired-end data input

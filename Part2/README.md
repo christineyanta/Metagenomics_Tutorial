@@ -36,8 +36,8 @@ Therefore, to assemble the Italian sequence data:
 1. We want to create two environment variables to classify all the R1 files from R2.
 
 ```(bash)
-R1s=`ls /MetagenomicsTutorial/ItalianData/*R1.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
-R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
+$ R1s=`ls /MetagenomicsTutorial/ItalianData/*R1.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
+$ R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
 ```
 
 2. Ensure the environmental variables are set properly. Your output should appear as follows:
