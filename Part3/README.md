@@ -1,6 +1,6 @@
 # Taxonomical Classification
 
-This part of the tutorial will explore the composition of microbial communities within the human gut microbiome collected the Italian and Hadza populations.
+This part of the tutorial will explore the composition of microbial communities within the human gut microbiome collected from the Italian and Hadza populations.
 
 There are many tools that map contigs to classify each one to a taxonomy such as metaBat, maxBin and Concoct.  These methods are typically used for assembly-based metagenomics analysis.
 
@@ -61,7 +61,7 @@ The arguments are as follows:
 
 If you have multiple samples within the same directory, the command can be simplified to:
 
-```bash
+```
 $ for f in *.fq
 > do
 >	metaphlan2 $f --input_type fastq --nproc 4 > ${f%.fq}_tax_profile.txt
@@ -89,7 +89,7 @@ k__Viruses|p__Viruses_noname|c__Viruses_noname  0.107
 
 Once the taxonomy information is gathered for all samples within one population, it can't be merged with the following command:
 
-```bash
+```
 $ merge_metaphlan_tables.py *_tax_profile.txt > merged_tax.txt
 ```
 
@@ -99,6 +99,24 @@ To get species only abundance table:
 
 ```bash
 $ grep -E "(s__)|(^ID)" merged_tax_table.txt | grep -v "t__" | sed 's/^.*s__//g' > merged_tax_species.txt
+```
+The final .txt file should look similar to the following:
+
+```
+ID	I11	I8
+Propionibacterium_freudenreichii	0.02567	0.0
+Bifidobacterium_adolescentis	3.83101	5.0928
+Bifidobacterium_catenulatum	0.0	3.09713
+Bifidobacterium_longum	0.49676	4.03507
+Bifidobacterium_pseudocatenulatum	0.0821	0.0
+Adlercreutzia_equolifaciens	0.0	0.01904
+Collinsella_aerofaciens	2.70415	3.26088
+Bacteroides_barnesiae	0.0	0.5826
+Bacteroides_salyersiae	0.0	0.00829
+Bacteroides_stercoris	0.00438	0.0
+Bacteroides_uniformis	0.22734	0.0
+Bacteroides_vulgatus	0.01739	0.0
+Parabacteroides_merdae	0.0	0.10609
 ```
 
 ### Visualizing MetaPhlAn2 Results

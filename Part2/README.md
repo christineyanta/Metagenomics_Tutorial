@@ -61,7 +61,7 @@ The arguments are described as follows:
 
 Once the assembly is finished, you can take a look at the statistics of the assembly performed:
 
-```bash
+```
 $ tail Assembly/log
 b'    [assembler.cpp             : 225]     Number of complex bubbles removed: 0, Time elapsed(sec): 0.235667'
 b'    [assembler.cpp             : 243]     Number unitigs disconnected: 0, time: 0.031702'
