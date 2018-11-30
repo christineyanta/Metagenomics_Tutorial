@@ -103,10 +103,10 @@ $ bowtie2 --threads 8 -x Mapping/contigs -1 Sample.R1.fq -2 Sample.R2.fq -S 04_M
 
 The first line simply maps the reads to the contigs generated, creating a SAM file.
 * Arguments Defined:
-        * `--thread 8` : 8 threads were used to complete the command
-        * `-x Mapping/contigs` : the indexed contigs (reference genome)
-        * `-1 Sample.R1.fq -2 Sample.R2.fq` : paired-end read data
-        * `-S Mapping/Sample.sam` : generate a SAM file with the mapping results
+ * `--thread 8` : 8 threads were used to complete the command
+ * `-x Mapping/contigs` : the indexed contigs (reference genome)
+ * `-1 Sample.R1.fq -2 Sample.R2.fq` : paired-end read data
+ * `-S Mapping/Sample.sam` : generate a SAM file with the mapping results
 
 When this command is completed, it will output statistics from the mapping, such as:
 
