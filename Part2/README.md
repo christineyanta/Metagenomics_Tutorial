@@ -82,6 +82,47 @@ From this log file, we can examine the number of contigs, total length, average 
 Repeat steps 1-3 for the Hadza data.
 
 
+## Mapping
 
+The next step in this tutorial will demonstrate how to map the reads to the contig assembly we just produced.
 
+Bowtie2 is a sequence aligner that maps short reads to a large reference genome. This program is memory-efficient, allowing for quick analysis.
 
+The first step towards aligning with Bowtie2 is to index the 'reference genome', or in this case our contigs:
+
+```(bash)
+$ mkdir Mapping
+$ bowtie2-build contigs.fa Mapping/contigs
+```
+
+Then for each sample, you will need to map the reads to the indexed reference genome:
+
+```(bash)
+$ bowtie2 --threads 8 -x Mapping/contigs -1 Sample.R1.fq -2 Sample.R2.fq -S 04_MAPPING/Sample.sam
+$ samtools view -F 4 -bS Mapping/Sample.sam > Mapping/Sample.bam
+$ samtools sort Mapping/Sample.bam > Mapping/Sample.sorted.bam
+$ samtools index Mapping/Sample.sorted.bam
+$ rm Mapping/Sample.sam Mapping/Sample.bam
+```
+
+The first line simply maps the reads to the contigs generated, creating a SAM file.
+* Arguments Defined:
+	* `--thread 8` : 8 threads were used to complete the command
+	* `-x Mapping/contigs` : the indexed contigs (reference genome)
+	* `-1 Sample.R1.fq -2 Sample.R2.fq` : paired-end read data
+	* `-S Mapping/Sample.sam` : generate a SAM file with the mapping results
+
+The second line takes all the reads that aligned to the contigs generated and save it as a BAM file.
+* Arguments Defined:
+	* `-F 4` : filter the mapped reads
+	* `-bS` : output as a BAM file
+
+The third line sorts the BAM file and the second last line simply indexes the sorted BAM file. 
+
+The you can remove the large SAM file and unsorted BAM file.
+
+Once you have all the two sorted, indexed BAM files for each population, you can create a contigs database. This database keeps all information related to the contgs: ORFs positions, k-mer frequencies, annotations. This is really useful for visualizing the data with anvi'o (later described). 
+
+```anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'Italian Database'```
+
+Both the contigs dabatase and mapped BAM files will be used in the next two sections of the tutorial.

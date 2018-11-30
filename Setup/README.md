@@ -16,6 +16,7 @@ Once bioconda is installed on your system, the following packages should be inst
 * fastqc
 * fastp
 * bowtie2
+* samtools
 * metaphlan2
 * hclust2
 * graphlan
@@ -36,6 +37,7 @@ Another option is downloading all of these programs locally without BioConda.
 * [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * [fastp](https://github.com/OpenGene/fastp)
 * [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+* [samtools](https://sourceforge.net/projects/samtools/)
 * [metaphlan2](https://bitbucket.org/biobakery/metaphlan2)
 * [hclust2](https://bitbucket.org/nsegata/hclust2)
 * [graphlan](https://bitbucket.org/nsegata/graphlan/wiki/Home)
