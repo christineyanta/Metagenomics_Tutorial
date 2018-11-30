@@ -27,14 +27,19 @@ Each SRA data file downloaded must be coverted into the FASTQ format.  This can 
 
 Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2). 
 
-	_Note: If you don't want the reads to be split, but rather all in one file, simply do not include this argument._
+_Note: If you don't want the reads to be split, but rather all in one file, simply do not include this argument._
 
-Once all of the sequencing reads for each sample is downloaded and converted into FASTQ format, the quality can be assessed.
+Once all of the sequencing reads for each sample are downloaded and converted into FASTQ format, the quality of the reads can be assessed.
 
 ## Assessing the Quality of Reads
 
-[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) allows for a quick assessment of quality of the reads obtained.
-NEED TO FINISH
+[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) allows for a quick assessment of quality of the reads obtained. You can obtain an report by typing:
+
+```bash
+$ fastqc sample_R1.fq
+```
+
+When completed, the program will output a .html report in the same directory you are working in. Open this report and examine the quality of the reads.
 
 ## Filtering Reads
 
