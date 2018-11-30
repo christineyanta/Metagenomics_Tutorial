@@ -99,30 +99,54 @@ Then for each sample, you will need to map the reads to the indexed reference ge
 
 ```(bash)
 $ bowtie2 --threads 8 -x Mapping/contigs -1 Sample.R1.fq -2 Sample.R2.fq -S 04_MAPPING/Sample.sam
+
+The first line simply maps the reads to the contigs generated, creating a SAM file.
+* Arguments Defined:
+        * `--thread 8` : 8 threads were used to complete the command
+        * `-x Mapping/contigs` : the indexed contigs (reference genome)
+        * `-1 Sample.R1.fq -2 Sample.R2.fq` : paired-end read data
+        * `-S Mapping/Sample.sam` : generate a SAM file with the mapping results
+
+When this command is completed, it will output statistics from the mapping, such as:
+
+```(bash)
+3242487 reads; of these:
+  3242487 (100.00%) were paired; of these:
+    2104962 (64.92%) aligned concordantly 0 times
+    1113484 (34.34%) aligned concordantly exactly 1 time
+    24041 (0.74%) aligned concordantly >1 times
+    ----
+    2104962 pairs aligned concordantly 0 times; of these:
+      222319 (10.56%) aligned discordantly 1 time
+    ----
+    1882643 pairs aligned 0 times concordantly or discordantly; of these:
+      3765286 mates make up the pairs; of these:
+        3246063 (86.21%) aligned 0 times
+        457695 (12.16%) aligned exactly 1 time
+        61528 (1.63%) aligned >1 times
+49.94% overall alignment rate
+```
+
+Afterwards, we need to obtain the sorted and indexed BAM file from the reads that aligned with the contigs. 
+
+```(bash)
 $ samtools view -F 4 -bS Mapping/Sample.sam > Mapping/Sample.bam
 $ samtools sort Mapping/Sample.bam > Mapping/Sample.sorted.bam
 $ samtools index Mapping/Sample.sorted.bam
 $ rm Mapping/Sample.sam Mapping/Sample.bam
 ```
 
-The first line simply maps the reads to the contigs generated, creating a SAM file.
-* Arguments Defined:
-	* `--thread 8` : 8 threads were used to complete the command
-	* `-x Mapping/contigs` : the indexed contigs (reference genome)
-	* `-1 Sample.R1.fq -2 Sample.R2.fq` : paired-end read data
-	* `-S Mapping/Sample.sam` : generate a SAM file with the mapping results
-
-The second line takes all the reads that aligned to the contigs generated and save it as a BAM file.
+The first line takes all the reads that aligned to the contigs generated and save it as a BAM file.
 * Arguments Defined:
 	* `-F 4` : filter the mapped reads
 	* `-bS` : output as a BAM file
 
-The third line sorts the BAM file and the second last line simply indexes the sorted BAM file. 
+The second line sorts the BAM file and the third line simply indexes the sorted BAM file. 
 
 The you can remove the large SAM file and unsorted BAM file.
 
 Once you have all the two sorted, indexed BAM files for each population, you can create a contigs database. This database keeps all information related to the contgs: ORFs positions, k-mer frequencies, annotations. This is really useful for visualizing the data with anvi'o (later described). 
 
-```anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'Italian Database'```
+```$ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'Italian Database'```
 
 Both the contigs dabatase and mapped BAM files will be used in the next two sections of the tutorial.
