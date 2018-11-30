@@ -70,7 +70,7 @@ $ for f in *.fq
 
 Either way, this analysis will produce a table in the output file with the relative abundance of taxonomy found.
 
-```bash
+```
 $ less sample_tax_profile.txt
 #SampleID       Metaphlan2_Analysis
 k__Bacteria     99.893

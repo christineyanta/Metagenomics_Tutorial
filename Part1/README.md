@@ -12,7 +12,7 @@ For this study, two random samples from each population will be downloaded. Thei
 	* Subject 19 - SRR1930132
 	* Subject 26 - SRR1930143
 
-To download each sample data set:
+To download each sample data set, type in the commands:
 
 ```bash
 $ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1931178/SRR1931178.sra
@@ -21,11 +21,13 @@ $ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/S
 $ wget ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR193/SRR1930143/SRR1930143.sra
 ```
 
-Each SRA data file downloaded must be coverted into the FASTQ format.  This can be done with the following command:
+Each SRA data file downloaded must be coverted into the FASTQ format.  This can be done by typing:
 
 ```$ /SRAToolKit/bin/fastq-dump --split-files datafile.sra``` 
 
-Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2).
+Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2). 
+
+_Note:If you don't want the reads to be split, but rather all in one file, simply do not include this argument.
 
 Once all of the sequencing reads for each sample is downloaded and converted into FASTQ format, the quality can be assessed.
 
