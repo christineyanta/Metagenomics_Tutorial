@@ -34,13 +34,15 @@ Once the analysis is done, you will receive an e-mail with the results.  From th
 
 In order to convert the KEGG IDs to their function.  Therefore, you will need to download the following file that links the KEGG assignment IDs to their functions:
 
-```$ wget https://christineyanta.github.io/Metagenomics_Tutorial/Part4/KEGG_table.txt```
+```bash
+$ wget https://christineyanta.github.io/Metagenomics_Tutorial/Part4/KEGG_table.txt
+```
 
 Next, we will need to perform some text file manipulations to get the data that we want. For this example, we will use the GhostKOALA user_ko.txt file obtained from the Italian data set.
 
 At this point, we should have an annotation file that appears similar to this:
 
-```(bash)
+```bash
 $ head user_ko.txt
 genecall_0	K01785
 genecall_1	K07240
@@ -63,14 +65,14 @@ This will now give us the functions and pathways associated for each gene that w
 
 For instance, say we want to get a count on number of genes to overall pathways. We can first get the second column from the functions file and then count how many there are of each:
 
-```(bash)
+```bash
 $ awk '{print $2}' Italian_functions.txt > Italian_pathways.txt
 $ cat Italian_pathways.txt | sort | uniq -c > Italian_pathways_count.txt
 ```
 
 If we look at this file, we now see the number of genes that were present for each major pathway:
 
-```(bash)
+```bash
 $ cat Italian_pathways_count.txt
  182 Cellular Processes
  322 Environmental Information Processing

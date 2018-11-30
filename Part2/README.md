@@ -10,7 +10,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 
 	The output should appear as:
 
-	```(bash)
+	```bash
 	Subject8.R1.fq
 	Subject8.R2.fq
 	Subject11.R1.fq
@@ -21,7 +21,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	```$ ls /MetagenomicsTutorial/HadzaData/*fastq```
 
 	The output should appear as:
-	```(bash)
+	```bash
 	Subject19.R1.fq
 	Subject19.R2.fq
 	Subject26.R1.fq
@@ -35,13 +35,13 @@ Therefore, to assemble the Italian sequence data:
 
 1. We want to create two environment variables to classify all the R1 files from R2.
 
-```(bash)
+```bash
 $ R1s=`ls /MetagenomicsTutorial/ItalianData/*R1.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
 $ R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
 ```
 2. Ensure the environmental variables are set properly. Your output should appear as follows:
 
-```(bash)
+```bash
 $ echo $R1s
 Subject8.R1.fq,Subject11.R1.fq
 $ echo $R2s
@@ -51,7 +51,7 @@ Subject8.R2.fq,Subject11.R2.fq
 
 ```$ megahit -1 $R1s -2 $R2s --min-contig-len 1000 -m 0.85 -o Assembly/ -t 8```
 
-The arguments are as follows:
+The arguments are described as follows:
 * `-1` : Read1 Input File(s)
 * `-2` : Read2 Input File(s)
 * `--min-contig-len` : the minimum length for a contig to keep
@@ -61,7 +61,7 @@ The arguments are as follows:
 
 Once the assembly is finished, you can take a look at the statistics of the assembly performed:
 
-```(bash)
+```bash
 $ tail Assembly/log
 b'    [assembler.cpp             : 225]     Number of complex bubbles removed: 0, Time elapsed(sec): 0.235667'
 b'    [assembler.cpp             : 243]     Number unitigs disconnected: 0, time: 0.031702'
@@ -88,14 +88,14 @@ Bowtie2 is a sequence aligner that maps short reads to a large reference genome.
 
 The first step towards aligning with Bowtie2 is to index the 'reference genome', or in this case our contigs:
 
-```(bash)
+```bash
 $ mkdir Mapping
 $ bowtie2-build contigs.fa Mapping/contigs
 ```
 
 Then for each sample, you will need to map the reads to the indexed reference genome:
 
-```(bash)
+```bash
 $ bowtie2 --threads 8 -x Mapping/contigs -1 Sample.R1.fq -2 Sample.R2.fq -S 04_MAPPING/Sample.sam
 ```
 
@@ -108,7 +108,7 @@ The first line simply maps the reads to the contigs generated, creating a SAM fi
 
 When this command is completed, it will output statistics from the mapping, such as:
 
-```(bash)
+```bash
 3242487 reads; of these:
   3242487 (100.00%) were paired; of these:
     2104962 (64.92%) aligned concordantly 0 times
@@ -128,7 +128,7 @@ When this command is completed, it will output statistics from the mapping, such
 
 Afterwards, we need to obtain the sorted and indexed BAM file from the reads that aligned with the contigs. 
 
-```(bash)
+```bash
 $ samtools view -F 4 -bS Mapping/Sample.sam > Mapping/Sample.bam
 $ samtools sort Mapping/Sample.bam > Mapping/Sample.sorted.bam
 $ samtools index Mapping/Sample.sorted.bam

@@ -25,7 +25,7 @@ The main requirements to follow along with tutorial is to have access to a Linux
 
 There are a variety of programs that are required to be downloaded in order to analyze the data set.  Please refer to the [Setup Instructions](https://christineyanta.github.io/Metagenomics_Tutorial/Setup/) before continuing with this tutorial.
   
-### Metagenomics Analysis
+### Metagenomics Analysis Tutorial
 
 A metagenomic study starts much earlier than sequence analysis. The following steps must be considered and performed: experimental design, sampling strategies, library preparation and sequencing. These four steps are critical to obtain good-quality data to analyze.
 
@@ -38,8 +38,7 @@ This tutorial begins once the sequencing reads for each sample have been obtaine
 
 ### References
 
-These pipelines have largely been influenced by the following tutorials:
+The following tutorials have been essential at understanding and creating this workflow:
 
-BioBakery - [MetaPhlAn2 Tutorial](https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2)
-
-MerenLab - [Anvio Tutorial](http://merenlab.org/tutorials/infant-gut/)
+* BioBakery - [MetaPhlAn2 Tutorial](https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2)
+* MerenLab - [Anvio Tutorial](http://merenlab.org/tutorials/infant-gut/)

@@ -28,7 +28,7 @@ Finally, to run CONCOCT for each population:
 
 ```$ anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT```
 
-From here, two SAMPLES-SUMMARY directories will be made with the results from CONCOCT. This data can be further analyzed. For instance, for each bin, you can examine the contigs, gene calls, abundances, and much more! 
+From here, two SAMPLES-SUMMARY directories will be made with the results from CONCOCT. This data can be further analyzed with tools such as [MetaQuast](http://quast.sourceforge.net/metaquast). For instance, for each bin, you can examine the contigs, gene calls, abundances, and much more! 
 
 
 **Note: With the merged_profile made of the samples, you can use anvi'o interactive interface to browse the data and perform refined, supervised binning.  For more information, click [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
@@ -51,7 +51,7 @@ The arguments are as follows:
 
 If you have multiple samples within the same directory, the command can be simplified to:
 
-```(bash)
+```bash
 $ for f in *.fq
 > do
 >	metaphlan2 $f --input_type fastq --nproc 4 > ${f%.fq}_tax_profile.txt
@@ -60,7 +60,7 @@ $ for f in *.fq
 
 Either way, this analysis will produce a table in the output file with the relative abundance of taxonomy found.
 
-```(base)
+```bash
 $ less sample_tax_profile.txt
 #SampleID       Metaphlan2_Analysis
 k__Bacteria     99.893
@@ -131,7 +131,7 @@ The arguments are as follows:
 
 This command will output two files: *.tree.txt and *.annot.txt. These two files are then used to create the cladogram using the following command:
 
-```(bash)
+```bash
 $ graphlan_annotate.py --annot merged_abundance.annot.txt merged_abundance.tree.txt merged_abundance.xml
 $ graphlan.py --dpi 300 merged_abundance.xml merged_abundance.png --external_legends
 ```
