@@ -27,7 +27,7 @@ Each SRA data file downloaded must be coverted into the FASTQ format.  This can 
 
 Since the data contains paired-end reads, the `--split-files` argument dumps each read into separate files (R1 and R2). 
 
-_Note:If you don't want the reads to be split, but rather all in one file, simply do not include this argument.
+_Note:If you don't want the reads to be split, but rather all in one file, simply do not include this argument._
 
 Once all of the sequencing reads for each sample is downloaded and converted into FASTQ format, the quality can be assessed.
 
