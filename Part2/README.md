@@ -29,7 +29,7 @@ At this point, you should have all the quality-filtered .fastq files for all fou
 	```
 The next step is to perform an assembly on the read data to form contigs. For this tutorial, the two samples from each population will be combined. Generally, each sample is assembled separately; however we will combine them for simplificity due to limited resources. Therefore, two assemblies will be created: Italian Assembly and Hadza Assembly.
 
-The program which we will use to assemble the contigs within the read files is [Megahit](https://github.com/voutcn/megahit).  This de novo assembler is able to assemble large and complex metagenomics in an efficient manner. An alternative program to Megahit is [metaSpades](https://www.ncbi.nlm.nih.gov/pubmed/28298430).
+The program which we will use to assemble the contigs within the read files is [Megahit](https://github.com/voutcn/megahit).  This de _novo assembler_ is able to assemble large and complex metagenomics in an efficient manner. An alternative program to Megahit is [metaSpades](https://www.ncbi.nlm.nih.gov/pubmed/28298430).
 
 Therefore, to assemble the Italian sequence data:
 
