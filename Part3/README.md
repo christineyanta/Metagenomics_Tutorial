@@ -14,26 +14,34 @@ From this point, you should have all BAM files for each sample in each populatio
 
 The next step is to create a profile for anvi'o.  This can be done with the following command:
 
-```$ anvi-profile -i sample.bam -c contigs.db```
+```bash
+$ anvi-profile -i sample.bam -c contigs.db
+```
 
 This will create a PROFILE.db file.  This step should be done for all .bam files created in the previous section.
 
 Afterwards, you will want to merge all sample for each population:
 
-```$ anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db```
+```bash
+$ anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db
+```
 
 In the end, you should have two SAMPLES-MERGED directories, one for each population (Hadza and Italian).
 
 Finally, to run CONCOCT for each population:
 
-```$ anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT```
+```bash
+$ anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT
+```
 
 From here, two SAMPLES-SUMMARY directories will be made with the results from CONCOCT. This data can be further analyzed with tools such as [MetaQuast](http://quast.sourceforge.net/metaquast). For instance, for each bin, you can examine the contigs, gene calls, abundances, and much more! 
 
 
 **Note: With the merged_profile made of the samples, you can use anvi'o interactive interface to browse the data and perform refined, supervised binning.  For more information, click [here](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/).
 
-```anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT```
+```bash
+$ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
+```
 
 ## MetaPhlAn2
 
@@ -43,7 +51,9 @@ Alternatively, a read-based approach can also be used to classify the reads taxo
 
 This workflow begins by running MetaPhlAn2 on each sample and then merging the results for each population. You can run this tool by using the following command:
 
-```$ metaphlan2 Sample.R1.fq --input_type fastq --nproc 4 > sample_tax_profile.txt```
+```bash
+$ metaphlan2 Sample.R1.fq --input_type fastq --nproc 4 > sample_tax_profile.txt
+```
 
 The arguments are as follows:
 * `--input_type` : metaphlan2 can accept fasta, fastq, fasta.gz, fastq.gz as input files
@@ -79,13 +89,17 @@ k__Viruses|p__Viruses_noname|c__Viruses_noname  0.107
 
 Once the taxonomy information is gathered for all samples within one population, it can't be merged with the following command:
 
-```$ merge_metaphlan_tables.py *_tax_profile.txt > merged_tax.txt```
+```bash
+$ merge_metaphlan_tables.py *_tax_profile.txt > merged_tax.txt
+```
 
 Taking a look at the output file, you can notice that all results for each sample within the population has been merged.
 
 To get species only abundance table:
 
-```$ grep -E "(s__)|(^ID)" merged_tax_table.txt | grep -v "t__" | sed 's/^.*s__//g' > merged_tax_species.txt```
+```bash
+$ grep -E "(s__)|(^ID)" merged_tax_table.txt | grep -v "t__" | sed 's/^.*s__//g' > merged_tax_species.txt
+```
 
 ### Visualizing MetaPhlAn2 Results
 
@@ -93,7 +107,9 @@ The merged taxonomic abundance results can then be visualized with the [hclust2]
 
 To generate the heatmap, simply type:
 
-```$ hclust2.py -i merged_tax_species.txt -o abundance_heatmap_species.png --ftop 25 --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 6 --slabel_size 6 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300```
+```bash
+$ hclust2.py -i merged_tax_species.txt -o abundance_heatmap_species.png --ftop 25 --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 6 --slabel_size 6 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300
+```
 
 The arguments are as follows:
 * `-i merged_tax_species.txt` : input species abundance table file
@@ -118,7 +134,9 @@ GraPhlAn allows the species abundance results in each sample to be visualized as
 
 To create a GraPhlAn visualization, we first need to create an appropriate input file. For the merged_tax_table.txt generated above, perform the following command:
 
-```$ export2graphlan.py --skip_rows 1,2 -i merged_tax_table.txt --tree merged_abundance.tree.txt --annotation merged_abundance.annot.txt --most_abundant 100  --annotations 5,6 --external_annotations 7```
+```bash
+$ export2graphlan.py --skip_rows 1,2 -i merged_tax_table.txt --tree merged_abundance.tree.txt --annotation merged_abundance.annot.txt --most_abundant 100  --annotations 5,6 --external_annotations 7
+```
 
 The arguments are as follows:
 * `--skip_rows 1,2` : skip rows 1 and 2
