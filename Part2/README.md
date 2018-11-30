@@ -39,7 +39,6 @@ Therefore, to assemble the Italian sequence data:
 $ R1s=`ls /MetagenomicsTutorial/ItalianData/*R1.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
 $ R2s=`ls /MetagenomicsTutorial/ItalianData/*R2.fq | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))
 ```
-
 2. Ensure the environmental variables are set properly. Your output should appear as follows:
 
 ```(bash)
@@ -48,7 +47,6 @@ Subject8.R1.fq,Subject11.R1.fq
 $ echo $R2s
 Subject8.R2.fq,Subject11.R2.fq
 ```
-
 3. Perform the assembly with Megahit:
 
 ```$ megahit -1 $R1s -2 $R2s --min-contig-len 1000 -m 0.85 -o Assembly/ -t 8```
