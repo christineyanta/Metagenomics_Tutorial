@@ -146,7 +146,7 @@ The arguments are as follows:
 
 The heatmap generated will should look similar to the following:
 
-![Heatmap of all Subjects](https://christineyanta.github.io/Metagenomics_Tutorial/heatmap.png)
+![Heatmap](https://christineyanta.github.io/Metagenomics_Tutorial/Part3/heatmap.png)
 
 This heatmap is saved under the directory you are working in.  Take a look at it to observe the taxonomical differences between samples.
 
