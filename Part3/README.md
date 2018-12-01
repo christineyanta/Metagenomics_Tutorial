@@ -87,7 +87,7 @@ k__Bacteria|p__Firmicutes|c__Erysipelotrichia   0.49084
 k__Viruses|p__Viruses_noname|c__Viruses_noname  0.107
 ```
 
-Once the taxonomy information is gathered for all samples within one population, it can't be merged with the following command:
+Once the taxonomy information is gathered for all samples within one population, it can be merged with the following command:
 
 ```
 $ merge_metaphlan_tables.py *_tax_profile.txt > merged_tax.txt
@@ -144,7 +144,11 @@ The arguments are as follows:
 * `--minv 0.1` : minimum display value of 0.1
 * `--dpi 300` : set image resolution to 300
 
-The heatmap will then saved under the directory you are working in.  Take a look at it to observe the taxonomical differences between samples.
+The heatmap generated will should look similar to the following:
+
+![Heatmap of all Subjects](https://christineyanta.github.io/Metagenomics_Tutorial/heatmap.png)
+
+This heatmap is saved under the directory you are working in.  Take a look at it to observe the taxonomical differences between samples.
 
 ### Visualizing MetaPhlAn2 Results with GraPhlAn
 
@@ -163,7 +167,7 @@ The arguments are as follows:
 * `--annotation merged_abundance.annot.txt` : output file used for annotation
 * `--most_abundant 100` : select top 100 species that are most abundant
 * `--annotations 5,6` : select taxonomic levels 5 and 6 to annotate
-* `--external_annotations 7` : use taxonomic level 7 for external legen
+* `--external_annotations 7` : use taxonomic level 7 for external legend
 
 This command will output two files: *.tree.txt and *.annot.txt. These two files are then used to create the cladogram using the following command:
 

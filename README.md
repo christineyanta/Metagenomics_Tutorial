@@ -1,7 +1,5 @@
 # <center>Shotgun Metagenomic Sequencing: Assembly-Based Analysis</center>
 
-WORK IN PROGRESS!!!
-
 ### Introduction
 The purpose of this tutorial is to provide one of the possible metagenomic workflows for analyzing shotgun metagenomic next-generation sequencing reads. Keep in mind that there are many different programs that will accomplish each step.
 
@@ -38,7 +36,7 @@ This tutorial begins once the sequencing reads for each sample have been obtaine
 
 ### References
 
-The following tutorials have been essential at understanding and creating this workflow:
+The following tutorials have been essential for understanding and creating this workflow:
 
 * BioBakery - [MetaPhlAn2 Tutorial](https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2)
 * MerenLab - [Anvio Tutorial](http://merenlab.org/tutorials/infant-gut/)
