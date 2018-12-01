@@ -176,4 +176,8 @@ $ graphlan_annotate.py --annot merged_abundance.annot.txt merged_abundance.tree.
 $ graphlan.py --dpi 300 merged_abundance.xml merged_abundance.png --external_legends
 ```
 
-The cladogram `.png` file is now generated and can be found in the directory you are working with.
+The cladogram `.png` file is now generated and can be found in the directory you are working with. The Italian and Hadza population cladograms should like the following images.
+
+![Italian](/Metagenomics_Tutorial/Part3/Italian_cladogram.png)
+
+![Hadza](/Metagenomics_Tutorial/Part3/Hadza_cladogram.png)
